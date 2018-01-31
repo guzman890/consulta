@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- window action alumno -->
+        <act_window 
+            id='view_alu_action' 
+            name='Alumno'
+            res_model='consultas.alumno' 
+            view_mode='tree,form,search'/>
+         <!-- Finish window action -->
+
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_alumno" 
+            name="Alumnos" 
+            parent="first_left_menu" 
+            action="view_alu_action"/>
+        
+        <!-- view  form-->
+        <record id='view_form_alumno' model='ir.ui.view'>
+            <field name='name'>alumno Form</field>
+            <field name='model'>consultas.alumno</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left">                
+                        <field name='alu_nombre'/>
+                        <field name='alu_apellido'/>
+                        <field name='alu_cui'/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_alumno" model="ir.ui.view">
+            <field name='name'>alumno tree</field>
+            <field name='model'>consultas.alumno</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='alu_nombre'/>
+                    <field name='alu_apellido'/>
+                    <field name='alu_cui'/>
+                </tree>
+            </field>
+        </record>
+        <!-- finish view -->
+    </data>
+</openerp>

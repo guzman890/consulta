@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- window action smt_crs -->
+        <act_window 
+            id='view_smt_crs_action' 
+            name='Semestre detalle'
+            res_model='consultas.smt_crs' 
+            view_mode='tree,form,search'/>
+         <!-- Finish window action -->
+
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_smt_crs" 
+            name="Semestre detalles" 
+            parent="first_left_menu" 
+            action="view_smt_crs_action"/>
+        
+        <!-- view  form-->
+        <record id='view_form_smt_crs' model='ir.ui.view'>
+            <field name='name'>smt_crs Form</field>
+            <field name='model'>consultas.smt_crs</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left">                
+                        <field name='smt_crs_creditos'/>
+                        <field name='smt_crs_curso_id'/>
+                        <field name='smt_crs_profesor_id'/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_smt_crs" model="ir.ui.view">
+            <field name='name'>smt_crs tree</field>
+            <field name='model'>consultas.smt_crs</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='smt_crs_creditos'/>
+                    <field name='smt_crs_curso_id'/>
+                    <field name='smt_crs_profesor_id'/>
+                </tree>
+            </field>
+        </record>
+        <!-- finish view -->
+    </data>
+</openerp>

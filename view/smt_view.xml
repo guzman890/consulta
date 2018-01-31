@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- window action semestre -->
+        <act_window 
+            id='view_smt_action' 
+            name='Semestre'
+            res_model='consultas.semestre' 
+            view_mode='tree,form,search'/>
+         <!-- Finish window action -->
+
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_semestre" 
+            name="Semestres" 
+            parent="first_left_menu" 
+            action="view_smt_action"/>
+        
+        <!-- view  form-->
+        <record id='view_form_semestre' model='ir.ui.view'>
+            <field name='name'>semestre Form</field>
+            <field name='model'>consultas.semestre</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                    <button string="Activar" type="object" name="activate" attrs="{'invisible': [('smt_estado', '=', 'active')]}"/>
+                    <!--button string="Activar" type="object" name="activate">
+                        <attribute name="invisible">[('smt_estado', '=', 'active')]</attribute>
+                    </button-->
+                    <button string="Cerrar" type="object" name="close" attrs="{'invisible': ['|',('smt_estado', '=', 'draft'),('smt_estado', '=', 'closed')]}"/>
+                    <field name="smt_estado" widget="statusbar" noclickable="True" />
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left">                
+                        <field name='smt_codigo'/>
+                        <field name='smt_fecha_inicio'/>
+                        <field name='smt_fecha_fin'/>
+                    </group>
+                </group>
+                <group name="group_bottom">
+                    <field name='smt_smt_crs_ids'/>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_semestre" model="ir.ui.view">
+            <field name='name'>semestre tree</field>
+            <field name='model'>consultas.semestre</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='smt_codigo'/>
+                    <field name='smt_fecha_inicio'/>
+                    <field name='smt_fecha_fin'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- view search  -->
+        <record id="view_search_semestre" model="ir.ui.view">
+            <field name="name">semestre search</field>
+            <field name="model">consultas.semestre</field>
+            <field name="arch" type="xml">
+                <search string="Informacion de Semestre">
+					<field name="smt_codigo" string="Codigo de Semestre:"/>
+					<group expand="0" string="Agrupar por:">
+						<filter name="groupby_estado" string="Estados de Semestre" domain="[]" context="{'group_by':'smt_estado'}"
+							help="Agrupa por estados de semestre"/>
+					</group>
+                    <filter name="Activos" string="Semestre activo" domain="[('smt_estado','=','active')]"
+						help="Muestra todos los Semestre activo" />
+					<filter name="Cerrados" string="Semestre cerrado" domain="[('smt_estado','=','closed')]"
+						help="Muestra todos los Semestre cerrados"/>
+				</search>
+            </field>
+        </record>
+
+        <!-- finish view -->
+    </data>
+</openerp>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>      
+        <!-- window action profesor -->
+        <act_window 
+            id='view_prf_action' 
+            name='Profesor'
+            res_model='consultas.profesor' 
+            view_mode='tree,form,search'/>
+        <!-- Finish window action -->
+
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_profesor" 
+            name="Profesores" 
+            parent="first_left_menu" 
+            action="view_prf_action"/>
+
+        <!-- view  form-->
+        <record id='view_form_profesor' model='ir.ui.view'>
+            <field name='name'>profesor Form</field>
+            <field name='model'>consultas.profesor</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left">                
+                        <field name='prf_nombre'/>
+                        <field name='prf_apellido'/>
+                        <field name='prf_direccion'/>
+                        <field name='prf_edad'/>
+                        <field name='prf_fecha_nacimiento'/>
+                        <field name='prf_fecha_hora_ingreso'/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_profesor" model="ir.ui.view">
+            <field name='name'>profesor tree</field>
+            <field name='model'>consultas.profesor</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='prf_nombre'/>
+                    <field name='prf_edad'/>
+                    <field name='prf_fecha_nacimiento'/>
+                </tree>
+            </field>
+        </record>
+        <!-- finish view -->
+    </data>
+</openerp>

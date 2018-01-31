@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- window action Incripcion -->
+        <act_window 
+            id='view_ins_smt_crs_action' 
+            name='Incripcion semestre curso'
+            res_model='consultas.ins_crs' 
+            view_mode='tree,form,search'/>
+         <!-- Finish window action -->
+
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_ins_smt_crs" 
+            name="Inscripciones semestre curso" 
+            parent="first_left_menu" 
+            action="view_ins_smt_crs_action"/>
+        
+        <!-- view  form-->
+        <record id='view_form_ins_crs' model='ir.ui.view'>
+            <field name='name'>Incripcion semestre curso Form</field>
+            <field name='model'>consultas.ins_crs</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left"> 
+                        <field name='ins_crs_inscripcion_id' readonly="1"/>               
+                        <field name='ins_crs_smt_crs_id'/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_ins_crs" model="ir.ui.view">
+            <field name='name'>Incripcion semestre curso tree</field>
+            <field name='model'>consultas.ins_crs</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='ins_crs_inscripcion_id' readonly="1"/>               
+                    <field name='ins_crs_smt_crs_id'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- finish view -->
+    </data>
+</openerp>

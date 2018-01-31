@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- window action Curso -->
+        <act_window 
+            id='view_crs_action' 
+            name='Curso'
+            res_model='consultas.curso' 
+            view_mode='tree,form,search'/>
+        <!-- Finish window action -->
+        
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_curso" 
+            name="Cursos" 
+            parent="first_left_menu" 
+            action="view_crs_action"/>
+
+        <!-- view  form-->
+        <record id='view_form_curso' model='ir.ui.view'>
+            <field name='name'>curso form</field>
+            <field name='model'>consultas.curso</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left">                
+                        <field name='crs_codigo'/>
+                        <field name='crs_nombre'/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_curso" model="ir.ui.view">
+            <field name='name'>curso tree</field>
+            <field name='model'>consultas.curso</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='crs_codigo'/>
+                    <field name='crs_nombre'/>
+                </tree>
+            </field>
+        </record>
+        <!-- finish view -->
+    </data>
+</openerp>

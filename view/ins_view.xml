@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- window action Incripcion -->
+        <act_window 
+            id='view_ins_action' 
+            name='Incripcion'
+            res_model='consultas.inscripcion' 
+            view_mode='tree,form,search'/>
+         <!-- Finish window action -->
+
+        <!-- Second Menu -->
+        <menuitem 
+            id="second_left_menu_inscripcion" 
+            name="Inscripciones" 
+            parent="first_left_menu" 
+            action="view_ins_action"/>
+        
+        <!-- view  form-->
+        <record id='view_form_Inscripcion' model='ir.ui.view'>
+            <field name='name'>Incripcion Form</field>
+            <field name='model'>consultas.inscripcion</field>
+            <field name='arch' type='xml'>
+            <form>
+                <header>
+                </header>
+                <sheet>
+                <group name="group_top">
+                    <group name="group_left">                
+                        <field name='ins_alumno'/>
+                        <field name='ins_semestre'/>
+                    </group>
+                </group>
+                <group name="group_bottom">
+                    <field name='ins_ins_crs_ids' domain="[('ins_semestre','=','ins_ins_crs_ids.smt_crs_semestre_id')]">
+                        <tree editable='true'>
+                            <field name='ins_crs_smt_crs_id' />
+                            <!--domain="[('ins_crs_smt_crs_id.smt_crs_semestre_id','=','ins_semestre')]"-->
+                        </tree>
+                    </field>
+                </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <!-- view tree -->
+        <record id="view_tree_Inscripcion" model="ir.ui.view">
+            <field name='name'>Inscripcion tree</field>
+            <field name='model'>consultas.inscripcion</field>
+            <field name='arch' type='xml'>
+                <tree>
+                    <field name='ins_alumno'/>
+                    <field name='ins_semestre'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- finish view -->
+    </data>
+</openerp>
