@@ -23,19 +23,22 @@
             <field name='arch' type='xml'>
             <form>
                 <header>
+                    <!--field name="ins_estado" widget="statusbar"/-->
                 </header>
                 <sheet>
                 <group name="group_top">
                     <group name="group_left">                
-                        <field name='ins_alumno'/>
                         <field name='ins_semestre'/>
+                        <field name='ins_smt_crs_id' domain="[('smt_crs_semestre_id','=',ins_semestre)]"/>
                     </group>
                 </group>
                 <group name="group_bottom">
-                    <field name='ins_ins_crs_ids' domain="[('ins_semestre','=','ins_ins_crs_ids.smt_crs_semestre_id')]">
+                    <field name='ins_ins_alu_ids' >
                         <tree editable='true'>
-                            <field name='ins_crs_smt_crs_id' />
-                            <!--domain="[('ins_crs_smt_crs_id.smt_crs_semestre_id','=','ins_semestre')]"-->
+                            <field name='ins_alu_alumno_id'  />
+                            <field name='ins_alu_uno' />
+                            <field name='ins_alu_dos' />
+                            <field name='ins_alu_promedio' readonly="1" />
                         </tree>
                     </field>
                 </group>
@@ -50,8 +53,7 @@
             <field name='model'>consultas.inscripcion</field>
             <field name='arch' type='xml'>
                 <tree>
-                    <field name='ins_alumno'/>
-                    <field name='ins_semestre'/>
+                    <field name='ins_smt_crs_id'/>
                 </tree>
             </field>
         </record>

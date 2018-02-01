@@ -31,6 +31,7 @@
                         <field name='prf_apellido'/>
                         <field name='prf_direccion'/>
                         <field name='prf_edad'/>
+                        <field name='prf_telefono'/>
                         <field name='prf_fecha_nacimiento'/>
                         <field name='prf_fecha_hora_ingreso'/>
                     </group>

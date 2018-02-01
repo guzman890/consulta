@@ -33,7 +33,7 @@
         'view/smt_view.xml',
         'view/smt_crs_view.xml',
         'view/ins_view.xml',
-        'view/ins_smt_crs_view.xml'
+        #'view/ins_smt_crs_view.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

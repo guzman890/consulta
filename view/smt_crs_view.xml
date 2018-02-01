@@ -32,6 +32,20 @@
                         <field name='smt_crs_profesor_id'/>
                     </group>
                 </group>
+                <group name="group_bottom">
+                    <field name='smt_crs_inscripcion_ids' >
+                            <field name='ins_ins_alu_ids' >
+                                <!--field name='name'>smt_crs Form</field>
+                                <field name='model'>consultas.ins_alu</field>
+                                <field name='arch' type='xml'>
+                                <tree editable='true'>
+                                    <field name='ins_alu_alumno_id'  />
+                                    <field name='ins_alu_uno'  />
+                                    <field name='ins_alu_dos'  />
+                                </tree-->
+                            </field>
+                    </field>
+                </group>
                 </sheet>
             </form>
             </field>
